@@ -1,7 +1,11 @@
-mapaPalabras = {}
-palabra = ""
-nveces = 0
+#Para la solución de este reto he utilizado la estructura de datos Dictionary de Python para contar las palabras
+#resultando en tupla por palabra del estilo (palabra, frecuencia)
 
+mapaPalabras = {}
+
+#La función contarPalabras() leerá cada palabra del fichero message_01.txt
+#Si la palabra ya ha sido añadida al diccionario, se aumenta la frecuencia en +1
+#Si no estaba la palabra, se inserta en el diccionario
 def contarPalabras():
     with open("message_01.txt") as archivo:
         for linea in archivo:
@@ -18,12 +22,9 @@ contarPalabras()
 
 solucion = ""
 
+#Muestra por pantalla el resultado del diccionario y se añade a un string solucion para moldear la solución al formato especificado
 for key in list(mapaPalabras.keys()):
     print(key, mapaPalabras[key])
     solucion += key + str(mapaPalabras[key])
 
-sortedMapa = sorted(mapaPalabras.items(), key=lambda x:x[1], reverse=True)
- 
-#print(sortedMapa)
-#print(mapaPalabras)
 print(solucion)
